@@ -1,0 +1,13 @@
+{
+    "DicomWeb": {
+        "Enable": true,
+        "Root": "/dicom-web/",
+        "EnableWado": true,
+        "WadoRoot": "/wado",
+        "Host": "127.0.0.1",
+        "Ssl": false,
+        "StowMaxInstances": 1000,
+        "StowMaxSize": 1000,
+        "QidoCaseSensitive": false
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "PostgreSQL": {
+        "EnableIndex": true,
+        "EnableStorage": false,
+        "Host": "localhost",
+        "Port": 5432,
+        "Database": "orthanc",
+        "Username": "orthanc",
+        "Password": "orthanc",
+        "EnableSsl": false,
+        "MaximumConnectionRetries": 10,
+        "ConnectionRetryInterval": 5,
+        "IndexConnectionsCount": 1,
+        "TransactionMode": "Serializable",
+        "EnableVerboseLogs": true
+    }
+}
