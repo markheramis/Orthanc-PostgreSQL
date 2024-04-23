@@ -1,13 +1,15 @@
 FROM ubuntu:22.04
 LABEL maintainer Mark <chumheramis@gmail.com>
 
-# Update package list and install Orthanc and its plugins
+# Update package list and install dependencies
 RUN apt-get update
-RUN apt install -y orthanc \
-    orthanc-postgresql \
-    orthanc-dicomweb
-RUN apt install -y postgresql
+RUN apt-get install -y wget
+RUN DEBIAN_FRONTEND=noninteractive apt install -y postgresql
 
+# Download and install Orthanc assets
+RUN wget https://orthanc.uclouvain.be/downloads/linux-standard-base/orthanc/1.12.3/Orthanc -O /usr/local/sbin/Orthanc
+
+RUN chmod +x /usr/local/sbin/Orthanc
 # Set environment variables for PostgreSQL
 ENV DB_USER=orthanc
 ENV DB_PASS=orthanc
@@ -28,6 +30,10 @@ USER root
 
 # Create /OrthancStorage folder 
 RUN mkdir -p /OrthancStorage
+
+# Create 'orthanc' user and group
+RUN groupadd -r orthanc && useradd -r -g orthanc orthanc
+
 # Set ownership of /OrthancStorage to orthanc:orthanc
 RUN chown -R orthanc:orthanc /OrthancStorage
 
@@ -46,6 +52,4 @@ CMD bash -c \
     # Start PostgreSQL Service
     "service postgresql start && \
     # Start Orthanc Service
-    service orthanc start && \
-    # Show the log file
-    tail -F /var/log/orthanc/Orthanc.log"
+    /usr/local/sbin/Orthanc /etc/orthanc/"

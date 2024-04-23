@@ -3,6 +3,18 @@
 		"BucketName": "",
 		"Region" : "",
 		"AccessKey" : "",
-		"SecretKey" : ""
+		"SecretKey" : "",
+		// "Endpoint": "",                           // optional: custom endpoint
+		// "ConnectionTimeout": 30,                  // optional: connection timeout in seconds
+		// "RequestTimeout": 1200,                   // optional: request timeout in seconds (max time to upload/download a file)
+		// "RootPath": "",                           // optional: see below
+		// "MigrationFromFileSystemEnabled": false,  // optional: see below
+		// "StorageStructure": "flat",               // optional: see below
+		// "EnableLegacyUnknownFiles": true,         // optional: see below
+		// "VirtualAddressing": true,                // optional: see the section related to MinIO
+		// "StorageEncryption" : {},                 // optional: see the section related to encryption
+		// "HybridMode": "Disabled",                 // optional: see the section related to Hybrid storage
+		"UseTransferManager": true,              // optional: see below (available from version 2.3.0)
+		"EnableAwsSdkLogs": true                 // optional: include AWS SDK logs in Orthanc logs
 	}
 }

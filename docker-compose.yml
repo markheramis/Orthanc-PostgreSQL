@@ -10,7 +10,6 @@ services:
     volumes:
       - ./config:/etc/orthanc/
       - ./logs/orthanc:/var/log/orthanc/
-      - ./logs/postgresql:/var/log/postgresql
       - ./storage:/OrthancStorage
     ports:
       - 4242:4242
