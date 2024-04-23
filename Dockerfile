@@ -32,11 +32,9 @@ RUN mkdir -p /OrthancStorage
 RUN chown -R orthanc:orthanc /OrthancStorage
 
 # Copy Configuration files
-COPY ./config/orthanc.json /etc/orthanc/orthanc.json
-COPY ./config/dicomweb.json /etc/orthanc/dicomweb.json
-COPY ./config/postgresql.json /etc/orthanc/postgresql.json
-COPY ./config/worklists.json /etc/orthanc/worklists.json
-COPY ./config/credentials.json /etc/orthanc/credentials.json
+COPY ./config/* /etc/orthanc/
+# Copy Plugin files
+COPY ./plugins/* /usr/share/orthanc/plugins/
 
 # Expose Orthanc's DICOM port
 EXPOSE 4242

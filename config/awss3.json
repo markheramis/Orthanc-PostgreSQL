@@ -1,0 +1,8 @@
+{
+    "AwsS3Storage" : {
+		"BucketName": "",
+		"Region" : "",
+		"AccessKey" : "",
+		"SecretKey" : ""
+	}
+}
